@@ -1,3 +1,5 @@
+
+
 export class Professional{
     public name: string
     public age: number
@@ -27,7 +29,7 @@ export class Professional{
     }
     public toString():string{
         return "Estos son los datos de la persona en cuestion:" + "\n" +
-        "nombre: " + this.name + "\n" +
+        "zombre: " + this.name + "\n" +
         "edad: " + this.age + "\n" +
         "genero: " + this.genre + "\n" +
         "peso: " + this.weight + "\n" +
@@ -41,6 +43,4 @@ export class Professional{
     }
 }
 
-let profesional1 = new Professional("Manolo", 33, "Varon", 82,176,"marron", "azul", "humana", false, "española", 0, "Director" )
 
-console.log(profesional1.toString())
