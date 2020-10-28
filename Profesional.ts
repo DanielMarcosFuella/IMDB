@@ -1,4 +1,4 @@
-class Professional{
+export class Professional{
     public name: string
     public age: number
     public genre: string
@@ -25,4 +25,22 @@ class Professional{
         this.oscarNumber=oscarNumber
         this.profession=profession
     }
+    public toString():string{
+        return "Estos son los datos de la persona en cuestion:" + "\n" +
+        "nombre: " + this.name + "\n" +
+        "edad: " + this.age + "\n" +
+        "genero: " + this.genre + "\n" +
+        "peso: " + this.weight + "\n" +
+        "altura: " + this.height + "\n" +
+        "color de pelo" + this.hairColor + "\n" +
+        "raza: " +this.race + "\n" +
+        "esta retirado?: " + this.isRetired + "\n" +
+        "nacionalidad: " + this.isRetired + "\n" +
+        "numero de Oscars: " + this.oscarNumber + "\n" +
+        "profesion: " + this.profession + "\n" 
+    }
 }
+
+let profesional1 = new Professional("Manolo", 33, "Varon", 82,176,"marron", "azul", "humana", false, "española", 0, "Director" )
+
+console.log(profesional1.toString())
