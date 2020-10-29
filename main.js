@@ -33,6 +33,8 @@ p2.language = "Española";
 p2.distributor = "Movie Records";
 p2.plataform = "Netflix";
 var arrMovies = [p1, p2];
-var imdb = new imdb_1.IMDB(arrMovies);
-// console.log(imdb.movies.toString())
-console.log(JSON.stringify(imdb));
+
+var cinesa = new imdb_1.IMDB(arrMovies);
+cinesa.escribirEnFicheroJSON("cinesa.json");
+console.log(cinesa.obtenerInstanciaIMDB("cinesa.json"));
+

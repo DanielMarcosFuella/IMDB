@@ -1,6 +1,9 @@
 import { Professional } from "./Profesional";
 import { Movie } from "./Movie";
 import { IMDB } from "./imdb";
+import * as fs from 'fs';
+
+
 
 let profesional1 = new Professional("Manolo", 33, "Masculino", 89,168,"marron", "azul", "humana", false, "española", 2, "Actor" )
 let profesional2 = new Professional("Benito", 34, "Masculino", 95,166,"marron", "marron", "humana", false, "española", 1, "Actor" )
@@ -38,7 +41,9 @@ p2.plataform = "Netflix";
 
 let arrMovies = [p1,p2]
 
-let imdb:IMDB = new IMDB(arrMovies);
+let cinesa:IMDB = new IMDB(arrMovies);
 
-// console.log(imdb.movies.toString())
-console.log(JSON.stringify(imdb))
+
+cinesa.escribirEnFicheroJSON("cinesa.json");
+console.log(cinesa.obtenerInstanciaIMDB("cinesa.json"));
+
