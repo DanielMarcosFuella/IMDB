@@ -1,3 +1,4 @@
+import * as fs from "fs"
 import { Professional } from "./Profesional";
 import { Movie } from "./Movie";
 import { IMDB } from "./imdb";
@@ -39,6 +40,4 @@ p2.plataform = "Netflix";
 let arrMovies = [p1,p2]
 
 let imdb:IMDB = new IMDB(arrMovies);
-
-// console.log(imdb.movies.toString())
-console.log(JSON.stringify(imdb))
+fs.writeFileSync("imdbBBDD.json", JSON.stringify(imdb) )

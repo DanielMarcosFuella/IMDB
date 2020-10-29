@@ -1,5 +1,0 @@
-*.js
-imbdb.js
-main.js
-Movie.js
-Profesional.js
