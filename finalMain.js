@@ -3,7 +3,11 @@ exports.__esModule = true;
 var Profesional_1 = require("./Profesional");
 var Movie_1 = require("./Movie");
 var imdb_1 = require("./imdb");
-// const readline = require('readline');
+var readline = require('readline');
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 var profesional1 = new Profesional_1.Professional("Manolo", 33, "Masculino", 89, 168, "marron", "azul", "humana", false, "española", 2, "Actor");
 var profesional2 = new Profesional_1.Professional("Benito", 34, "Masculino", 95, 166, "marron", "marron", "humana", false, "española", 1, "Actor");
 var profesional3 = new Profesional_1.Professional("Maria", 31, "Femenino", 82, 176, "rubio", "azuñ", "humana", false, "española", 0, "Actor");
@@ -35,14 +39,24 @@ p2.distributor = "Movie Records";
 p2.plataform = "Netflix";
 var arrMovies = [p1, p2];
 var cinesa = new imdb_1.IMDB(arrMovies);
-cinesa.escribirEnFicheroJSON("cinesa.json");
-console.log(cinesa.obtenerInstanciaIMDB("cinesa.json"));
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
-// rl.question('¿Como se llama la peli? ', (answer:string) => {
-//   // TODO: Log the answer in a database
-//   console.log(`Thank you for your valuable feedback: ${answer}`);
-//   rl.close();
-// });
+console.log(cinesa);
+console.log(cinesa.movies);
+console.log(0);
+// cinesa.escribirEnFicheroJSON("cinesa.json");
+// console.log(cinesa.obtenerInstanciaIMDB("cinesa.json"));
+rl.question('¿Como se llama la peli? ', function (title) {
+    rl.question('¿Año de lanzamiento? ', function (releaseYear) {
+        rl.question('¿Origen? ', function (nacionality) {
+            rl.question('¿Genero? ', function (genre) {
+                var p1 = new Movie_1.Movie(title, releaseYear, nacionality, genre);
+                var yelmo = cinesa.obtenerInstanciaIMDB("cinesa.json");
+                // cinesa.escribirEnFicheroJSON("test.json");     
+                yelmo.movies.push(p1);
+                yelmo.escribirEnFicheroJSON("cinesa.json");
+                console.log(yelmo);
+                console.log(yelmo.movies);
+                rl.close();
+            });
+        });
+    });
+});

@@ -1,4 +1,6 @@
 import { Professional } from "./Profesional";
+
+
 export class Movie {
     public title:string;
     public releaseYear:number;
@@ -25,10 +27,7 @@ export class Movie {
      * allMovies
      */
     public toString():string {
-        // let arrActores:string[] = [];
-        // for (let index = 0; index < this.actors.length; index++) {            
-        //     arrActores[index] = (this.actors[index].name);
-        // }
+
 
         return `
         Titulo:  ${this.title} \n
@@ -43,7 +42,10 @@ export class Movie {
         Protagonista: ${this.producer} \n
         Disctribuidor: ${this.distributor} \n
         Genero ${this.genre} \n `
-    }        
+    }  
+    
+
+
 
 }
 

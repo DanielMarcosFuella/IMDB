@@ -1,6 +1,11 @@
 "use strict";
 exports.__esModule = true;
 exports.Movie = void 0;
+// const readline = require('readline');
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+//   });
 var Movie = /** @class */ (function () {
     function Movie(title, releaseYear, nacionality, genre) {
         this.title = title;

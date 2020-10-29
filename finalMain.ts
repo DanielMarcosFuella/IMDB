@@ -3,8 +3,12 @@ import { Movie } from "./Movie";
 import { IMDB } from "./imdb";
 import * as fs from 'fs';
 
-
-
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
 
 let profesional1 = new Professional("Manolo", 33, "Masculino", 89,168,"marron", "azul", "humana", false, "española", 2, "Actor" )
 let profesional2 = new Professional("Benito", 34, "Masculino", 95,166,"marron", "marron", "humana", false, "española", 1, "Actor" )
@@ -43,7 +47,26 @@ p2.plataform = "Netflix";
 let arrMovies = [p1,p2]
 
 let cinesa:IMDB = new IMDB(arrMovies);
+console.log(cinesa);
+console.log(cinesa.movies);
+console.log(0)
 
+// cinesa.escribirEnFicheroJSON("cinesa.json");
+// console.log(cinesa.obtenerInstanciaIMDB("cinesa.json"));
 
-cinesa.escribirEnFicheroJSON("cinesa.json");
-console.log(cinesa.obtenerInstanciaIMDB("cinesa.json"));
+rl.question('¿Como se llama la peli? ', (title:string) => {
+    rl.question('¿Año de lanzamiento? ', (releaseYear:number) => {
+        rl.question('¿Origen? ', (nacionality:string) => {
+            rl.question('¿Genero? ', (genre:string) => {
+                let p1:Movie = new Movie(title,releaseYear,nacionality,genre)                        
+                let yelmo:IMDB = cinesa.obtenerInstanciaIMDB("cinesa.json");
+                // cinesa.escribirEnFicheroJSON("test.json");     
+                yelmo.movies.push(p1); 
+                yelmo.escribirEnFicheroJSON("cinesa.json");
+                console.log(yelmo)           
+                console.log(yelmo.movies)           
+                rl.close();
+            });
+        });
+    });
+});
